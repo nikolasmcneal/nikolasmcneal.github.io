@@ -1,3 +1,3 @@
 # nikolasmcneal.github.io
 
-My personal Github page @ https://nickmcneal.github.io
+My personal Github page @ https://nikolasmcneal.github.io
