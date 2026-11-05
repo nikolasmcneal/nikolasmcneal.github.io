@@ -1,165 +1,360 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Nikolas McNeal @ Georgia Tech</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="This is Nikolas McNeal's homepage" />
     <meta name="keywords" content="Nikolas McNeal, Georgia Tech, Mathematics, Machine Learning" />
     <style>
-        /* CSS to prevent hyperlinks from turning purple */
-        a {
-            text-decoration: none;
-            color: blue; /* Change link color if needed */
+        body {
+            margin: 0;
+            background: #fffef3;
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.25;
         }
 
-        /* CSS to center the webpage within 60% of the screen */
+        /* Readable column on desktop, full width with a gutter on phones */
         #wrapper {
-            max-width: 50%;
+            max-width: 760px;
             margin: 0 auto;
+            padding: 24px 16px 48px;
+            display: flow-root;
+        }
+
+        /* Links stay the same color after visiting */
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        h1 { margin: 0 0 4px; }
+        h3 { font-size: 1.4em; margin: 32px 0 8px; }
+        h4 { margin: 16px 0 4px; }
+        header p { margin: 2px 0; }
+
+        #photo {
+            float: right;
+            width: 200px;
+            max-width: 40%;
+            margin: 0 0 16px 20px;
+            text-align: center;
+        }
+        #photo img {
+            width: 100%;
+        }
+        /* Cat sits in the bottom right, level with the last line of Contact */
+        #closing {
+            position: relative;
+            padding-right: 200px;
+        }
+        #Contact p {
+            margin-bottom: 0;
+        }
+        #cat {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 180px;
+            margin: 0;
+            text-align: center;
+        }
+        #cat img {
+            width: 100%;
+        }
+        #photo figcaption, #cat figcaption {
+            font-size: 14px;
+            color: #666;
+        }
+
+        #links {
+            margin-top: 10px;
+        }
+        #links a {
+            margin-right: 14px;
+            white-space: nowrap;
+        }
+
+        /* About starts right under the header, next to the photo */
+        #About h3 {
+            margin-top: 28px;
+        }
+
+        .tagline {
+            font-size: 1.15em;
+            margin: 20px 0 0;
+        }
+
+        #About {
+            margin-bottom: 48px;
+        }
+
+        .seeking {
+            color: #c00;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* Dates sit on their own line above each entry */
+        .term {
+            display: block;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Table of contents pinned to the left on wide screens */
+        html {
+            scroll-behavior: smooth;
+        }
+        section {
+            scroll-margin-top: 16px;
+        }
+        #toc {
+            display: none;
+        }
+        @media (min-width: 1100px) {
+            #toc {
+                display: block;
+                position: fixed;
+                top: 120px;
+                left: calc(50% - 380px - 170px);
+                width: 140px;
+                font-size: 15px;
+            }
+            #toc a {
+                display: block;
+                padding: 3px 0 3px 10px;
+                border-left: 1px solid #ccc;
+                color: #888;
+            }
+            #toc a.active {
+                color: #000;
+                border-left-color: #000;
+            }
+        }
+
+        /* Phones: photo above the text instead of beside it */
+        @media (max-width: 560px) {
+            #closing {
+                padding-right: 0;
+            }
+            #cat {
+                position: static;
+                margin: 24px auto 0;
+                width: 160px;
+                max-width: 60%;
+            }
+            #photo {
+                float: none;
+                display: block;
+                width: 160px;
+                max-width: 60%;
+                margin: 0 auto 16px;
+            }
         }
     </style>
 </head>
 
 <body>
+<nav id="toc">
+    <a href="#About">About</a>
+    <a href="#Publications">Papers</a>
+    <a href="#Presentations">Presentations</a>
+    <a href="#Teaching">Teaching</a>
+    <a href="#Mentorship">Mentorship</a>
+    <a href="#Updates">Updates</a>
+    <a href="#Contact">Contact</a>
+</nav>
 <div id="wrapper">
-    <img src="photos/nikolas_mcneal.jpg" alt="Nikolas McNeal" style="width:100%; max-width:250px;float:right">
     <!-- Header -->
-    <section id="header" class="skel-layers-fixed">
-        <header>
-            <h1>Nikolas McNeal</h1>
-            <p>Machine Learning PhD student  @ Georgia Tech</p>
-            <!-- <p>Office Hours (SP24): Tuesdays 1-2 PM Clough 280</p> -->
-
-            <p> Email: nikolas [at] gatech [dot] edu</p>
-        </header>
-        <nav id="nav">
-            <ul class="icons">
-                <li><a href="#About" class="active">About</a></li>
-                <li><a href="#Publications">Publications</a></li>
-                <li><a href="#Contact">Contact</a></li>
-            </ul>
-        </nav>
-    </section>
+    <header>
+        <figure id="photo">
+            <img src="photos/selfie_web.jpg" alt="Nikolas McNeal">
+            <figcaption>me</figcaption>
+        </figure>
+        <h1>Nikolas McNeal</h1>
+        <p>Machine Learning PhD student @ Georgia Tech</p>
+        <p>Email: nikolas [at] gatech [dot] edu</p>
+        <div id="links">
+            <!-- <a href="files/CV.pdf">[CV]</a> -->
+            <a href="https://github.com/nikolasmcneal">[GitHub]</a>
+            <a href="https://soundcloud.com/nikolas-mcneal">[SoundCloud]</a>
+            <!-- <a href="GOOGLE_SCHOLAR_URL">[Google Scholar]</a> -->
+        </div>
+    </header>
 
     <!-- Main -->
     <div id="main">
-        <!-- About -->
+        <p class="tagline">
+            I leverage computational models of the brain for non-invasive neural control. More broadly, I want to understand how brains and machines perceive the world, and what each can teach us about the other.
+        </p>
         <section id="About">
-            <div class="container">
-                <header class="major">
-                    <!-- <h2>Hi, I am Nick.</h2> -->
-                </header>
-                <p>
-                    I am currently a third-year Ph.D. student in the <a href="https://www.google.com/search?q=machine+learning&oq=machine+learning&gs_lcrp=EgZjaHJvbWUqDAgAEEUYOxixAxiABDIMCAAQRRg7GLEDGIAEMgYIARAjGCcyDAgCECMYJxiABBiKBTIKCAMQABixAxiABDINCAQQABiDARixAxiABDIHCAUQABiABDIKCAYQABixAxiABDIHCAcQABiABDIKCAgQABixAxiABDIHCAkQABiABNIBCDE2NTRqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8">Machine Learning</a> program @ Georgia Tech, where I work with <a href="https://www.murtylab.com/">Ratan Murty</a>. I am broadly interested in the computational principles underlying visual perception, particularly the relationship between representations from neural networks and humans.                     I obtained my undergraduate degree in Computer Science from The Ohio State University in 2023.
-                </p>
-            </div>
+            <h3>About</h3>
+            <p>
+                I am currently a fourth-year Ph.D. student in the <a href="https://www.google.com/search?q=machine+learning&oq=machine+learning&gs_lcrp=EgZjaHJvbWUqDAgAEEUYOxixAxiABDIMCAAQRRg7GLEDGIAEMgYIARAjGCcyDAgCECMYJxiABBiKBTIKCAMQABixAxiABDINCAQQABiDARixAxiABDIHCAUQABiABDIKCAYQABixAxiABDIHCAcQABiABDIKCAgQABixAxiABDIHCAkQABiABNIBCDE2NTRqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8">Machine Learning</a> program @ Georgia Tech, where I work with <a href="https://www.murtylab.com/">Ratan Murty</a>. I obtained my undergraduate degree in Computer Science from The Ohio State University in 2023, where I worked with the <a href="https://twitter.com/osunlp">OSU NLP group</a>.
+            </p>
+            <p>
+                <u class="seeking">I am actively seeking machine learning internships for Summer and/or Fall 2027.</u>
+            </p>
+            <p>
+                Much of my work has focused on computational models of human vision. Specifically, I am interested in where they match the brain, where they are misaligned, and what we can learn from that misalignment.
+            </p>
+            <p>Some related things I am working on:</p>
+            <ul>
+                <li>the geometry of visual invariances in models and brains.</li>
+                <li>how the statistics of training data shape DNN-brain alignment.</li>
+                <li>AI agents and RSI for designing experiments and improving models (and running some fun fMRI experiments!).</li>
+            </ul>
+            <p>
+                Lately, I have been learning more about AI agents, safety, and interpretability and will be sharing some thoughts along the way as I learn! <a href="blog.html">[blog]</a>
+            </p>
         </section>
 
         <section id="Publications">
-            <div class="container">
-                <i class="icon-text fa-file-text" aria-hidden="true"></i>
-                <h3>Papers</h3>
-                <article>
-                    <b>McNeal N.</b>, Ratan Murty N.A. <i>Targeted perturbations reveal brain-like local coding axes in robustified, but not standard, ANN-based encoding models</i>. arXiv preprint. 2025. 
-                            <a href="https://arxiv.org/pdf/2509.23333">[paper]</a> 
-                </article>
-                <br>
-
-
-                <article>
-                    <b>McNeal N.*</b>, Deb M.*, Ratan Murty N.A. <i>Small-scale adversarial perturbations expose
-                        differences between predictive encoding models of
-                        human fMRI responses</i>. NeurIPS 2025 Workshop on
-                            Unifying Representations in Neural Models <b>(UniReps)</b> 
-                            <a href="https://proceedings.mlr.press/v285/mcneal24a.html">[paper]</a> 
-                </article>
-                <br>
-                <article>
-                    Dipani A.*, <b>McNeal N.*</b>, Ratan Murty N.A. <i>Linking faces to social cognition: The temporal pole as a potential social switch</i>. <b>PNAS</b> (Commentary). 2024 <a href="https://www.pnas.org/doi/10.1073/pnas.2411735121">[paper]</a> 
-                </article>
-                <article>
-                    <p><b>McNeal N.</b>, Huang J., Umoren A., Dai S., Dannenberg R., Randall R., Lee T.S. <i>Relating Human Perception of Musicality to Prediction in a Predictive Coding Model</i>. arXiv. 2023. <a href="https://arxiv.org/abs/2210.16587">[paper]</a> <a href="https://github.com/leelabcnbc/predictive-coding-music-prediction">[code]</a> </article></div></p>
-                </article>
-                <!-- <i class="icon-text fa-file-text" aria-hidden="true"></i> -->
-                <!-- <h3>Conference Publications</h3> -->
-                <article>
-                    Gutiérrez B., <b>McNeal N.</b>, Washington C., Chen Y., Li L., Sun H., Su Y. <i>Thinking about GPT-3 In-Context Learning for Biomedical IE? Think Again</i>. <b>EMNLP</b> 2022 (Findings). <a href="https://aclanthology.org/2022.findings-emnlp.329/">[paper]</a> <a href="https://github.com/dki-lab/few-shot-bioIE">[code]</a>
-                </article>
-                <br>
-                * denotes equal contribution
+            <h3>Papers</h3>
+            <ul>
+                <li>
+                    <b>McNeal N.</b>, Ratan Murty N.A. <i>Targeted perturbations reveal brain-like local coding axes in robustified, but not standard, ANN-based encoding models</i>. arXiv preprint, 2025.
+                    <a href="https://arxiv.org/pdf/2509.23333">[paper]</a>
+                </li>
+                <li>
+                    <b>McNeal N.*</b>, Deb M.*, Ratan Murty N.A. <i>Small-scale adversarial perturbations expose differences between predictive encoding models of human fMRI responses</i>. NeurIPS 2024 Workshop on Unifying Representations in Neural Models (<b>UniReps</b>), 2024.
+                    <a href="https://proceedings.mlr.press/v285/mcneal24a.html">[paper]</a>
+                </li>
+                <li>
+                    Dipani A.*, <b>McNeal N.*</b>, Ratan Murty N.A. <i>Linking faces to social cognition: The temporal pole as a potential social switch</i>. <b>PNAS</b> (Commentary), 2024.
+                    <a href="https://www.pnas.org/doi/10.1073/pnas.2411735121">[paper]</a>
+                </li>
+                <li>
+                    <b>McNeal N.</b>, Huang J., Umoren A., Dai S., Dannenberg R., Randall R., Lee T.S. <i>Relating Human Perception of Musicality to Prediction in a Predictive Coding Model</i>. arXiv preprint, 2023.
+                    <a href="https://arxiv.org/abs/2210.16587">[paper]</a>
+                    <a href="https://github.com/leelabcnbc/predictive-coding-music-prediction">[code]</a>
+                </li>
+                <li>
+                    Gutiérrez B., <b>McNeal N.</b>, Washington C., Chen Y., Li L., Sun H., Su Y. <i>Thinking about GPT-3 In-Context Learning for Biomedical IE? Think Again</i>. <b>EMNLP</b> (Findings), 2022.
+                    <a href="https://aclanthology.org/2022.findings-emnlp.329/">[paper]</a>
+                    <a href="https://github.com/dki-lab/few-shot-bioIE">[code]</a>
+                </li>
+            </ul>
+            <p>* denotes equal contribution</p>
         </section>
 
-        <!-- <h3>Conference presentations:</h3>
-        <ul>
-            <li> Shanahan D., Kang J., <b>McNeal N.</b> <i>Understanding the Role of Schematic Knowledge in the Preference for Harmonic Asymmetry with Iterative Learning.</i> International Conference on Music Perception and Cognition (<b>ICMPC</b>), 2023. Tokyo, Japan. Oral presentation. </li>
-            <br>
-            <li> <b>McNeal N.</b>, Kang J., Hay N., Shanahan D. <i>Iterative learning suggests a preference for harmonic asymmetry.</i> Society for Music Perception and Cognition (<b>SMPC</b>), 2022. Portland, Oregon. Oral presentation. </li>
-            <br>
-            <li> <b>McNeal N.</b>, Shevlin B., Krajbich I. <i>What causes enhanced processing of high-value items?</i> Poster at: 44th Annual Cognitive Science Society (<b>CogSci</b>), 2022. Toronto, Canada. <a href="posters/cogsci-poster.pdf">[poster]</a> </li>
-        </ul> -->
-
-        
-        
-
-		<h3>Teaching</h3>
-		<ul>
-            <b>TA @ Georgia Tech</b>
-            <li>Spring 2026</li>
-            &nbsp;&nbsp;&nbsp;&nbsp;MATH 2106 Foundations of Mathematical Proof
-            <!-- newline -->
-            <br>			
-            <br>
-            
-            <li>Fall 2025</li>
-            &nbsp;&nbsp;&nbsp;&nbsp;MATH 1712 Survey of Calculus
-            <!-- newline -->
-            <br>
-            <br>
-
-			<li>Fall 2023, Spring 2024, Fall 2024, Spring 2025</li>
-            &nbsp;&nbsp;&nbsp;&nbsp;MATH 2552 Differential Equations <a href="math2552/notes.html">[notes]</a> 
-            <br>
-
-            <br>
-            <b>TA @ Ohio State</b>
-            <li>Spring 2023</li>
-            &nbsp;&nbsp;&nbsp;&nbsp;MATH 4530 Quantitative Neuroscience
-            <br>
-            <br>
-            <section>
+        <section id="Presentations">
+            <h3>Presentations</h3>
+            <ul>
+                <li>
+                    <b>McNeal N.</b>, Ratan Murty N.A. <i>Robustness aligns the local coding axes of artificial and biological vision</i>. Vision Sciences Society (<b>VSS</b>), 2026. St. Pete Beach, Florida. Talk.
+                </li>
+                <li>
+                    <b>McNeal N.</b>, Deb M., Ratan Murty N.A. <i>Small-scale adversarial perturbations expose key differences between ANN-based vision encoding models</i>. Vision Sciences Society (<b>VSS</b>), 2025. St. Pete Beach, Florida. Poster.
+                    <a href="https://jov.arvojournals.org/article.aspx?articleid=2809654">[abstract]</a>
+                </li>
+                <li>
+                    Shanahan D., Kang J., <b>McNeal N.</b> <i>Understanding the Role of Schematic Knowledge in the Preference for Harmonic Asymmetry with Iterative Learning</i>. International Conference on Music Perception and Cognition (<b>ICMPC</b>), 2023. Tokyo, Japan. Talk.
+                </li>
+                <li>
+                    <b>McNeal N.</b>, Kang J., Hay N., Shanahan D. <i>Iterative learning suggests a preference for harmonic asymmetry</i>. Society for Music Perception and Cognition (<b>SMPC</b>), 2022. Portland, Oregon. Talk.
+                </li>
+                <li>
+                    <b>McNeal N.</b>, Shevlin B., Krajbich I. <i>What causes enhanced processing of high-value items?</i> Cognitive Science Society (<b>CogSci</b>), 2022. Toronto, Canada. Poster.
+                    <a href="posters/cogsci-poster.pdf">[poster]</a>
+                </li>
+                <li>
+                    <b>McNeal N.</b>, Umoren A., Huang J., Lee T.S. <i>Unsupervised Musicality Prediction of Pitch Sequences</i>. CMU-Pitt Undergraduate Program in Neural Computation, 2021. Pittsburgh, Pennsylvania. Poster.
+                    <a href="posters/upnc-poster.pdf">[poster]</a>
+                </li>
+                <li>
+                    Umoren A., <b>McNeal N.</b>, Lee T.S. <i>Probing PredNet's Internal Representations using Feature Visualization</i>. CMU-Pitt Undergraduate Program in Neural Computation, 2021. Pittsburgh, Pennsylvania. Poster.
+                    <a href="posters/aniekan-poster.pdf">[poster]</a>
+                </li>
             </ul>
+        </section>
+
+        <section id="Teaching">
+            <h3>Teaching</h3>
+            <h4>TA @ Georgia Tech</h4>
+            <ul>
+                <li><span class="term">Spring 2026</span> MATH 2106 Foundations of Mathematical Proof</li>
+                <li><span class="term">Fall 2025</span> MATH 1712 Survey of Calculus</li>
+                <li><span class="term">Fall 2023 – Spring 2025</span> MATH 2552 Differential Equations <a href="math2552/notes.html">[notes]</a></li>
+            </ul>
+            <h4>TA @ Ohio State</h4>
+            <ul>
+                <li><span class="term">Spring 2023</span> MATH 4350 Quantitative Neuroscience</li>
+            </ul>
+        </section>
+
+        <section id="Mentorship">
             <h3>Mentorship</h3>
-        <h4>Directed Reading Program</h4>
-                    The Directed Reading Program is a program in the Math department that pairs interested undergraduates with graduates students for independent study projects. <br>
-                    I have served as a mentor for the following semesters:
-                    <li> [Autumn 2023] Topic: <i>Machine Learning for Modeling Dynamical Systems</i></li>
-                    <li> [Spring 2024] Topic: <i>Introduction to Machine Learning</i></li>
+            <h4>Undergraduate Students Advised</h4>
+            <ul>
+                <li><span class="term">Spring 2026 – present</span> Shreyas Angadi</li>
+            </ul>
+            <h4>Directed Reading Program</h4>
+            <p>
+                The Directed Reading Program is a program in the Math department that pairs interested undergraduates with graduate students for independent study projects. I have served as a mentor for the following semesters:
+            </p>
+            <ul>
+                <li><span class="term">Spring 2024</span> <i>Introduction to Machine Learning</i></li>
+                <li><span class="term">Fall 2023</span> <i>Machine Learning for Modeling Dynamical Systems</i></li>
+            </ul>
+        </section>
 
+        <div id="closing">
+            <section id="Updates">
+                <h3>Updates</h3>
+                <ul>
+                    <li>[2026] Gave a talk at VSS 2026!</li>
+                    <li>[2025] Presented at the departmental Brown Bag. <a href="files/brown_bag_nov_2025_website_comp.pdf">[slides]</a></li>
+                    <li>[2025] Received the best poster award at the Georgia Tech Frontiers in Science (Intelligence) conference!</li>
+                    <li>[2025] Presented a poster at VSS 2025.</li>
+                    <li>[2023] OSU CSE Undergraduate Research Award</li>
+                    <li>[2021] OSU Undergraduate Research Scholarship</li>
+                    <li>[2021] OSU Decision Sciences Collaborative Scholarship</li>
+                    <li>[2019] Eminence Fellowship (now Stamps Eminence Scholarship)</li>
+                </ul>
+            </section>
 
-		<i class="icon-text fa-trophy" aria-hidden="true"></i> <h3>Updates</h3>
-		<ul>
-            <li>[2025] Presented at departmental Brown Bag <a href="files/brown_bag_nov_2025_website_comp.pdf">[slides]</a> </li>
-            <li>[2025] Happy to receive the best poster award at the Georgia Tech: Frontiers in Science (Intelligence) conference!</li>
-			<li>[2023] OSU CSE Undergraduate Research Award</li>
-			<li>[2021] OSU Undergraduate Research Scholarship</li>
-            <li>[2021] OSU Decision Sciences Collaborative Scholarship </li>
-            <li>[2019] Received the Eminence Fellowship (now Stamps Eminence Scholarship)</li>
-		</ul>
-	</div>
-</section>
+            <!-- <h3><a href="blog/blog.html">Blog</a></h3> -->
 
-<!-- <h3><a href="blog/blog.html">Blog</a></h3> -->
-	<section id="Contact">
-			<i class="icon-text fa-envelope"></i> <h3>Contact</h3>
-			<p>
-				<!-- Email: nikolas@gatech.edu <br> -->
-				Office: Skiles 149 <br>
-				Address: 686 Cherry St NW, Atlanta, GA 30313
-			</p>
-
-		</div>
-            </div>
-		</div>
-	</body>
+            <section id="Contact">
+                <h3>Contact</h3>
+                <p>
+                    Email: nikolas [at] gatech [dot] edu<br>
+                    Office: JS Coon B79<br>
+                    Address: 654 Cherry St NW, Atlanta, GA 30332
+                </p>
+            </section>
+            <figure id="cat">
+                <img src="photos/cat_web.jpg" alt="My cat">
+                <figcaption>my great cat</figcaption>
+            </figure>
+        </div>
+    </div>
+</div>
+<script>
+    // Highlight the table of contents entry for the section being read
+    (function () {
+        var links = document.querySelectorAll('#toc a');
+        var sections = Array.prototype.map.call(links, function (a) {
+            return document.querySelector(a.getAttribute('href'));
+        });
+        function update() {
+            var current = 0;
+            sections.forEach(function (sec, i) {
+                if (sec.getBoundingClientRect().top < window.innerHeight * 0.3) current = i;
+            });
+            if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) current = sections.length - 1;
+            links.forEach(function (a, i) { a.classList.toggle('active', i === current); });
+        }
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+    })();
+</script>
+</body>
 </html>
