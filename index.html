@@ -6,10 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="This is Nikolas McNeal's homepage" />
     <meta name="keywords" content="Nikolas McNeal, Georgia Tech, Mathematics, Machine Learning" />
+    <script>
+        // Pick the theme before the page draws: saved choice, else light
+        (function () {
+            var theme = null;
+            try { theme = localStorage.getItem('theme'); } catch (e) {}
+            if (!theme) theme = 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
     <style>
+        /* Colors: pale yellow by default, dark navy in dark mode */
+        :root {
+            --bg: #fffef3;
+            --text: #000;
+            --link: blue;
+            --muted: #666;
+            --seeking: #c00;
+            --toc: #888;
+            --toc-line: #ccc;
+            --toc-active: #000;
+            --box-line: #d8d2b8;
+        }
+        :root[data-theme="dark"] {
+            --bg: #0f1a2e;
+            --text: #e6e4dc;
+            --link: #8cb4ff;
+            --muted: #9aa7bb;
+            --seeking: #ff7b7b;
+            --toc: #7d8aa0;
+            --toc-line: #34445f;
+            --toc-active: #fff;
+            --box-line: #3a4b68;
+        }
+
         body {
             margin: 0;
-            background: #fffef3;
+            background: var(--bg);
+            color: var(--text);
             font-family: "Times New Roman", Times, serif;
             line-height: 1.25;
         }
@@ -20,12 +54,27 @@
             margin: 0 auto;
             padding: 24px 16px 48px;
             display: flow-root;
+            position: relative;
+        }
+
+        /* Light/dark switch, just left of the photo */
+        #theme-toggle {
+            position: absolute;
+            top: 24px;
+            right: 244px;
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 32px;
+            line-height: 1;
+            color: var(--text);
+            cursor: pointer;
         }
 
         /* Links stay the same color after visiting */
         a {
             text-decoration: none;
-            color: blue;
+            color: var(--link);
         }
 
         h1 { margin: 0 0 4px; }
@@ -64,7 +113,7 @@
         }
         #photo figcaption, #cat figcaption {
             font-size: 14px;
-            color: #666;
+            color: var(--muted);
         }
 
         #links {
@@ -80,9 +129,13 @@
             margin-top: 28px;
         }
 
+        /* Light box around the summary; flow-root keeps it clear of the photo */
         .tagline {
             font-size: 1.15em;
             margin: 20px 0 0;
+            padding: 10px 14px;
+            border: 1px solid var(--box-line);
+            display: flow-root;
         }
 
         #About {
@@ -90,7 +143,7 @@
         }
 
         .seeking {
-            color: #c00;
+            color: var(--seeking);
             font-size: 1.1em;
         }
 
@@ -105,7 +158,7 @@
         .term {
             display: block;
             font-size: 14px;
-            color: #666;
+            color: var(--muted);
         }
 
         /* Table of contents pinned to the left on wide screens */
@@ -130,17 +183,20 @@
             #toc a {
                 display: block;
                 padding: 3px 0 3px 10px;
-                border-left: 1px solid #ccc;
-                color: #888;
+                border-left: 1px solid var(--toc-line);
+                color: var(--toc);
             }
             #toc a.active {
-                color: #000;
-                border-left-color: #000;
+                color: var(--toc-active);
+                border-left-color: var(--toc-active);
             }
         }
 
         /* Phones: photo above the text instead of beside it */
         @media (max-width: 560px) {
+            #theme-toggle {
+                right: 16px;
+            }
             #closing {
                 padding-right: 0;
             }
@@ -172,6 +228,7 @@
     <a href="#Contact">Contact</a>
 </nav>
 <div id="wrapper">
+    <button id="theme-toggle" type="button" aria-label="Toggle dark mode"></button>
     <!-- Header -->
     <header>
         <figure id="photo">
@@ -339,6 +396,23 @@
     </div>
 </div>
 <script>
+    // Light/dark switch: moon in light mode, sun in dark mode
+    (function () {
+        var button = document.getElementById('theme-toggle');
+        function show() {
+            var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+            button.textContent = dark ? '\u2600\uFE0E' : '\u263E';
+            button.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+        }
+        button.addEventListener('click', function () {
+            var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) {}
+            show();
+        });
+        show();
+    })();
+
     // Highlight the table of contents entry for the section being read
     (function () {
         var links = document.querySelectorAll('#toc a');
