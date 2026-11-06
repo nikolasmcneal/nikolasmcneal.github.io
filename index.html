@@ -130,6 +130,9 @@
             opacity: 0;
             transition: opacity 0.3s;
         }
+        /* Brain map background matches the theme */
+        :root[data-theme="dark"] #cat .brain-light,
+        :root:not([data-theme="dark"]) #cat .brain-dark { display: none; }
         #cat figcaption { position: relative; }
         #cat .brain-caption {
             position: absolute;
@@ -433,7 +436,8 @@
             <figure id="cat" tabindex="0">
                 <div class="flip">
                     <img src="photos/cat_web.jpg" alt="My cat">
-                    <img class="brain" src="photos/cat_brain_web.jpg" alt="Model-predicted brain response to the photo of my cat">
+                    <img class="brain brain-light" src="photos/cat_brain_web.jpg" alt="Model-predicted brain response to the photo of my cat">
+                    <img class="brain brain-dark" src="photos/cat_brain_dark_web.jpg" alt="Model-predicted brain response to the photo of my cat">
                 </div>
                 <figcaption>
                     <span class="cat-caption">my great cat</span>
