@@ -26,7 +26,9 @@
             --toc: #888;
             --toc-line: #ccc;
             --toc-active: #000;
-            --box-line: #d8d2b8;
+            --box-line: #c2ba98;
+            --box-bg: #f7f3dc;
+            --img-border: #1f2f5a;
         }
         :root[data-theme="dark"] {
             --bg: #0f1a2e;
@@ -38,6 +40,8 @@
             --toc-line: #34445f;
             --toc-active: #fff;
             --box-line: #3a4b68;
+            --box-bg: #0b1526;
+            --img-border: #8a93a3;
         }
 
         body {
@@ -95,7 +99,7 @@
         /* Cat sits in the bottom right, level with the last line of Contact */
         #closing {
             position: relative;
-            padding-right: 200px;
+            padding-right: 220px;
         }
         #Contact p {
             margin-bottom: 0;
@@ -104,12 +108,17 @@
             position: absolute;
             right: 0;
             bottom: 0;
-            width: 180px;
+            width: 200px;
             margin: 0;
             text-align: center;
         }
         #cat img {
             width: 100%;
+        }
+        #photo img, #cat img {
+            display: block;
+            box-sizing: border-box;
+            border: 1px solid var(--img-border);
         }
         #photo figcaption, #cat figcaption {
             font-size: 14px;
@@ -126,7 +135,7 @@
 
         /* About starts right under the header, next to the photo */
         #About h3 {
-            margin-top: 28px;
+            margin-top: 56px;
         }
 
         /* Light box around the summary; flow-root keeps it clear of the photo */
@@ -135,6 +144,7 @@
             margin: 20px 0 0;
             padding: 10px 14px;
             border: 1px solid var(--box-line);
+            background: var(--box-bg);
             display: flow-root;
         }
 
@@ -220,7 +230,7 @@
 <body>
 <nav id="toc">
     <a href="#About">About</a>
-    <a href="#Publications">Selected Papers</a>
+    <a href="#Publications">Papers</a>
     <a href="#Presentations">Presentations</a>
     <a href="#Teaching">Teaching</a>
     <a href="#Mentorship">Mentorship</a>
