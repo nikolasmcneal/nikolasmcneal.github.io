@@ -120,6 +120,32 @@
         #cat img {
             width: 100%;
         }
+        /* Hover (or tap) swaps the cat for its predicted brain response */
+        #cat { cursor: pointer; }
+        #cat .flip { position: relative; }
+        #cat .brain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        #cat figcaption { position: relative; }
+        #cat .brain-caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        #cat .cat-caption { transition: opacity 0.3s; }
+        #cat.flipped .brain, #cat.flipped .brain-caption { opacity: 1; }
+        #cat.flipped .cat-caption { opacity: 0; }
+        @media (hover: hover) {
+            #cat:hover .brain, #cat:hover .brain-caption { opacity: 1; }
+            #cat:hover .cat-caption { opacity: 0; }
+        }
         #photo img, #cat img {
             display: block;
             box-sizing: border-box;
@@ -404,13 +430,33 @@
                     <a href="https://x.com/nikolasmcneal">[twitter]</a>
                 </p>
             </section>
-            <figure id="cat">
-                <img src="photos/cat_web.jpg" alt="My cat">
-                <figcaption>my great cat</figcaption>
+            <figure id="cat" tabindex="0">
+                <div class="flip">
+                    <img src="photos/cat_web.jpg" alt="My cat">
+                    <img class="brain" src="photos/cat_brain_web.jpg" alt="Model-predicted brain response to the photo of my cat">
+                </div>
+                <figcaption>
+                    <span class="cat-caption">my great cat</span>
+                    <span class="brain-caption">predicted brain activity to image of great cat</span>
+                </figcaption>
             </figure>
         </div>
     </div>
 </div>
+<script>
+    // Tap the cat to flip it on touch screens
+    (function () {
+        var cat = document.getElementById('cat');
+        cat.addEventListener('click', function () {
+            // Mouse users already get the swap on hover
+            if (window.matchMedia('(hover: hover)').matches) return;
+            cat.classList.toggle('flipped');
+        });
+        cat.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); cat.classList.toggle('flipped'); }
+        });
+    })();
+</script>
 <script>
     // Light/dark switch: moon in light mode, sun in dark mode
     (function () {
